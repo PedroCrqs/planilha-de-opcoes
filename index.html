@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="atribution" content="Coded by PedroCrq" />
+    <title>Opções para parceria</title>
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <link rel="stylesheet" href="./src/css/responsive.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./src/images/logo.png"
+    />
+  </head>
+  <body>
+    <h1>Lista de Imóveis</h1>
+    <div class="input-container">
+      <input
+        type="text"
+        id="search"
+        placeholder="Pesquisar por nome do imóvel/bairro/valor/tipologia"
+        onkeyup="searchTable()"
+      />
+    </div>
+    <table id="table" border="1">
+      <thead>
+        <tr>
+          <th>Nome do Imóvel</th>
+          <th>Bairro</th>
+          <th>Valor</th>
+          <th>Tipologia</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/folders/1ly4D90bpRpEyPTYaqwGHczr9XVAYl-HY?usp=drive_link"
+              target="_blank"
+              >Alphagreen</a
+            >
+          </td>
+          <td>Barra da Tijuca</td>
+          <td>R$ 1.100.000</td>
+          <td>2qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/folders/1Ubm4j5x33xij0r4IKUCBN5ZPfM7aH2Gi?usp=drive_link"
+              target="_blank"
+              >Barra Bali - Crystal</a
+            >
+          </td>
+          <td>Barra da Tijuca</td>
+          <td>R$ 750.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/folders/1DCJbq_HXboGMBsdBm-mH3zICDhYTLYwd?usp=drive_link"
+              target="_blank"
+              >Barramares</a
+            >
+          </td>
+          <td>Barra da Tijuca</td>
+          <td>R$ 4.900.000</td>
+          <td>4qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/folders/1e2NkLTDBkk9Rc0WQryFLOVUk-P5cd3jl?usp=drive_link"
+              target="_blank"
+              >Bourbon</a
+            >
+          </td>
+          <td>Barra da Tijuca</td>
+          <td>R$ 1.300.000</td>
+          <td>2qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/folders/10LH_lrSnqZICJJX3SrDpvJYpqGO0e0Ms?usp=drive_link"
+              target="_blank"
+              >Casa - Novo Leblon</a
+            >
+          </td>
+          <td>Barra da Tijuca</td>
+          <td>R$ 7.350.000</td>
+          <td>5qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/folders/1_ZfJNNlFHFyXWM9OkDVzEE-T-nFYYjTV?usp=drive_link"
+              target="_blank"
+              >Casa - San Diego</a
+            >
+          </td>
+          <td>Barra da Tijuca</td>
+          <td>R$ 4.500.000</td>
+          <td>4qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/folders/1piFz7mG1f6bhDKAXCkEoRRhweyJYSTav?usp=drive_link"
+              target="_blank"
+              >Cobertura - Laguna Di Mare</a
+            >
+          </td>
+          <td>Barra da Tijuca</td>
+          <td>R$ 1.845.000</td>
+          <td>4qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/folders/1iM_DJHz3B4MCnzzjtabl3Nw29xvPNP3o?usp=drive_link"
+              target="_blank"
+              >Cobertura - Le Parc</a
+            >
+          </td>
+          <td>Barra da Tijuca</td>
+          <td>R$ 2.422.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/16Xk1FPOEucCHYfv_lJul7nahhBNXcVIE"
+              target="_blank"
+              >Cobertura - London Green: Blue A</a
+            >
+          </td>
+          <td>Barra da Tijuca</td>
+          <td>R$ 2.750.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/18PsTjEY9Db8QJ2Dx1YbqROyJb_OSCPp4"
+              target="_blank"
+              >Cobertura - London Green: Blue B</a
+            >
+          </td>
+          <td>Barra da Tijuca</td>
+          <td>R$ 2.500.000</td>
+          <td>4qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/folders/1ymFbr6BLw3r1ZnBXgXdzo783pqU07PS3?usp=drive_link"
+              target="_blank"
+              >Cobertura - Soho</a
+            >
+          </td>
+          <td>Barra da Tijuca</td>
+          <td>R$ 1.600.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/folders/1LjDWcBOVMava7qbreCHNZzcNNUqHB6W4?usp=drive_link"
+              target="_blank"
+              >Cobertura - Union Square Home</a
+            >
+          </td>
+          <td>Barra da Tijuca</td>
+          <td>R$ 2.000.000</td>
+          <td>4qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/12T1qCL6a6xMTX-ImFxCGmC8WNYv_flMl"
+              target="_blank"
+              >Cobertura Jardim Oceânico A</a
+            >
+          </td>
+          <td>Barra da Tijuca</td>
+          <td>R$ 3.990.000</td>
+          <td>5qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1EVSyPw1k2wjFoHsn3Dpe8IHEy10kyyG5"
+              target="_blank"
+              >Cobertura Jardim Oceânico B</a
+            >
+          </td>
+          <td>Barra da Tijuca</td>
+          <td>R$ 3.450.000</td>
+          <td>5qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1oN9UC64NxF4iE_LTrxIgHhpZtDkE5aDm"
+              target="_blank"
+              >Cobertura Jardim Oceânico C</a
+            >
+          </td>
+          <td>Barra da Tijuca</td>
+          <td>R$ 3.790.000</td>
+          <td>4qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/folders/1Amr_tKGsfgGxA1u6nz38HGiZL_iLFbtp?usp=drive_link"
+              target="_blank"
+              >Cobertura Saint George</a
+            >
+          </td>
+          <td>Barra da Tijuca</td>
+          <td>R$ 2.300.000</td>
+          <td>2qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/folders/1obgoV9Jx5XVhcIwFB9aSEEZZqA3qlW_s?usp=drive_link"
+              target="_blank"
+              >Maayan</a
+            >
+          </td>
+          <td>Barra da Tijuca</td>
+          <td>R$ 800.000</td>
+          <td>2qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/folders/19_hxs1Wq2mA7abvfRGy5p3IlM9ATjt5k?usp=drive_link"
+              target="_blank"
+              >Origami</a
+            >
+          </td>
+          <td>Barra da Tijuca</td>
+          <td>R$ 850.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1rCTCDFlbaJFMl19iE533K5eDeQWuM5bs"
+              target="_blank"
+              >Viure A</a
+            >
+          </td>
+          <td>Barra da Tijuca</td>
+          <td>R$ 1.250.000</td>
+          <td>2qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/folders/17yrsE9T2jWaBKYcs1wl97U9WlopsXC8m?usp=drive_link"
+              target="_blank"
+              >Viure B</a
+            >
+          </td>
+          <td>Barra da Tijuca</td>
+          <td>R$ 1.200.000</td>
+          <td>2qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1yfqusCZWN0bOxN_st4qjupdxzs61BBjm"
+              target="_blank"
+              >Cobertura - BarraMais</a
+            >
+          </td>
+          <td>Barra Olímpica</td>
+          <td>R$ 1.285.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1p7B29E6XIhBeAWARCl6QCmqwlPj7HlNL"
+              target="_blank"
+              >Estrelas Full Condominium</a
+            >
+          </td>
+          <td>Barra Olímpica</td>
+          <td>R$ 580.000</td>
+          <td>2qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1b52nixCzg14FfO3k8WnUaMY9bJrl6xCj"
+              target="_blank"
+              >Casa independente</a
+            >
+          </td>
+          <td>Freguesia</td>
+          <td>R$ 498.000</td>
+          <td>4qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1icoBd4DHx2Enh7_uQAQZsQrOR5KvVI3O"
+              target="_blank"
+              >Casa - Jardim Uruçanga</a
+            >
+          </td>
+          <td>Freguesia</td>
+          <td>R$ 1.350.000</td>
+          <td>4qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1sN07hEbOGkTIeeallrt_kVpKxaABAdnP"
+              target="_blank"
+              >Cobertura - Village Florença</a
+            >
+          </td>
+          <td>Freguesia</td>
+          <td>R$ 850.000</td>
+          <td>2qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1EVgh5tQ7RoR_ogYW-EaY4Vgtvw4W30NS"
+              target="_blank"
+              >Residencial Matisse</a
+            >
+          </td>
+          <td>Freguesia</td>
+          <td>R$ 799.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/11re0JqIJJO5nGTTPAlEdhTGLSx07AUZe"
+              target="_blank"
+              >Vila do Pan / Indianópolis</a
+            >
+          </td>
+          <td>Jacarepaguá</td>
+          <td>R$ 445.000</td>
+          <td>2qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1sUr9WeXauvVeknRN_NvJ0mLMAenGFnxa"
+              target="_blank"
+              >Cobertura - Studio 6677</a
+            >
+          </td>
+          <td>Jacarepaguá</td>
+          <td>R$ 450.000</td>
+          <td>2qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/16iVGfdvRyDXyBrt-9WOz-olWh6PmWwkl"
+              target="_blank"
+              >Residencial Seasons</a
+            >
+          </td>
+          <td>Jacarepaguá</td>
+          <td>R$ 540.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1x43Nq-TmqnjMMHZOpPGWhlhALRPN7_WX"
+              target="_blank"
+              >Cobertura - Lume Residencial</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 2.400.000</td>
+          <td>4qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/16nE_VZL-Qj_zbHwnvHm4DaPDCM-Goi0I"
+              target="_blank"
+              >Barra Family</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 940.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/13BsjntKbXN3DBwFoo3QMvlUh5hIYtyu3"
+              target="_blank"
+              >Casa - Green Place</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 3.100.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1PSHpeitGZZHvMDcWze3ix5ikVV3vKB4K"
+              target="_blank"
+              >Casa - Riviera del Sol</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 3.600.000</td>
+          <td>5qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1j2pss18AoLZ96L9EhJ84cnos-ek1Y8SL"
+              target="_blank"
+              >Cobertura - Barra Village House Life</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 1.650.000</td>
+          <td>4qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1UtPC1OQXbMu4lsSTiW7TIpAfMICypVaJ"
+              target="_blank"
+              >Cobertura - Barra Village Lakes</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 1.850.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/11u0d1JykWewm9JwUqEOS1aLAjdIWKch3"
+              target="_blank"
+              >Cobertura - Enjoy</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 1.300.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1JfLuFx8LRhiueMn8UY3tZkh65LQSr2yA"
+              target="_blank"
+              >Cobertura Prédio Baixo - Gleba A</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 1.270.000</td>
+          <td>2qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1VQQxGtL_wNDhMEYq2JGoUfwYUQoJnw2_"
+              target="_blank"
+              >Cobertura Prédio Baixo - Gleba B</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 1.790.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1VBmv7wuijTncV4wFrWcASLHM1loGK90s"
+              target="_blank"
+              >Damai</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 1.260.000</td>
+          <td>4qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1Xo6VbvBmrAsmEVkQv7ZaYjCGpnyAFIf2"
+              target="_blank"
+              >Frames</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 590.000</td>
+          <td>2qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1AOQ14-i6B98sWST3_rZOXMvyAjWNjLCl"
+              target="_blank"
+              >Frames</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 782.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/16JrWnEN4kw_hrpDcV0JcNyMtUR_ZUSg0"
+              target="_blank"
+              >Maramar</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 3.700.000</td>
+          <td>8qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1g6kG-ouUdUTe654Xt3WhO23oFbx1KT4T"
+              target="_blank"
+              >Maui</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 650.000</td>
+          <td>2qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1uV1SXfVnON5ljGK-MlpfutJrVe226rkL"
+              target="_blank"
+              >Máximo Resort</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 890.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1N8kNfC6w3ZsGImJm9sCRbVuY_CA0OO0Q"
+              target="_blank"
+              >Máximo Resort</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 780.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1MtW6JIPM40dGv0gQBnuqWhpSuxEYBivf"
+              target="_blank"
+              >Nova Sernambetiba</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 790.000</td>
+          <td>2qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1TIcSm-Vv-eWdkO34iner1zjxnulDNthR"
+              target="_blank"
+              >Park Premium</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 900.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1fP-BrxhkpMezTYNjWlXbZxeiQy7qPJwD"
+              target="_blank"
+              >Prédio Baixo - Gleba A</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 870.000</td>
+          <td>4qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1ZDxF8A8wRyGmy9ThokVwZQNweimHj9WI"
+              target="_blank"
+              >Prédio Baixo - Gleba A</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 1.180.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1S6LRDhjr1U05iZrp09QXcfOrMsNFbuzT"
+              target="_blank"
+              >Prédio Baixo - Gleba A</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 650.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1-faCx0gOyvXoRMUWjR7jucZMNTEWzn9_"
+              target="_blank"
+              >Prédio Baixo - Gleba A</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 1.045.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1Ctg7-G5VvuNXl1pWzbGJvUEC_3EMiKLx"
+              target="_blank"
+              >Prédio Baixo - Gleba A</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 599.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1bBc6fEHZTKvNw2q2WcTX0m6NA9oomoO7"
+              target="_blank"
+              >Prédio Baixo - Gleba B</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 820.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1wXYRSq3evsKXx3lDGWP09CU2BWkEwQP9"
+              target="_blank"
+              >Prédio Baixo - Gleba B</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 790.000</td>
+          <td>2qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1Hk7BwZjv1wuu7Z89v0tixVP_782dXwns"
+              target="_blank"
+              >Prédio Baixo - Gleba B</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 1.380.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1llWI7XErbkZU40psCtu6ThAhj6g5n910"
+              target="_blank"
+              >Round Decks</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 620.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1yVk-sDwAy6qO0V3jxx1oOwIc_wHw80r5"
+              target="_blank"
+              >Saint Vivant</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 650.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/13hf7shExjSpoKR4PXvtTw-IJwtFl5fsP"
+              target="_blank"
+              >Way Barra Bonita</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 500.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1Z3PgoqEHwwhcrJS6vPtQdVGYMZAizQCD"
+              target="_blank"
+              >West Vintage</a
+            >
+          </td>
+          <td>Recreio dos Bandeirantes</td>
+          <td>R$ 850.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1-4LFQn2U5KjLr8W0BfQNEbncS10gMiq3"
+              target="_blank"
+              >Casa - Terra Nossa</a
+            >
+          </td>
+          <td>Taquara</td>
+          <td>R$ 880.000</td>
+          <td>3qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1bxGrm-KC3eQfZL3L49g1vspBQTxab12k"
+              target="_blank"
+              >Cobertura - Ecoway</a
+            >
+          </td>
+          <td>Taquara</td>
+          <td>R$ 589.000</td>
+          <td>2qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1AX1stdq7Fr74Nijsc-chAGZOt9tyJOMt"
+              target="_blank"
+              >Casa - Dream Garden</a
+            >
+          </td>
+          <td>Vargem Pequena</td>
+          <td>R$ 2.100.000</td>
+          <td>5qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1YC48Gko0-saFIioxVRmOQseGEi72Ne6S"
+              target="_blank"
+              >Casa - Dream Garden II</a
+            >
+          </td>
+          <td>Vargem Pequena</td>
+          <td>R$ 1.590.000</td>
+          <td>4qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/13m3SU7GcsPjYLMVcc3pVXUzB9ditZSiC"
+              target="_blank"
+              >Casa - Tangarás Recreio</a
+            >
+          </td>
+          <td>Vargem Pequena</td>
+          <td>R$ 1.499.000</td>
+          <td>4qts</td>
+        </tr>
+      </tbody>
+    </table>
+    <footer>
+      <p class="attribution">
+        Coded by <a href="https://github.com/PedroCrqs">Pedro Cerqueira</a>.
+      </p>
+    </footer>
+    <script src="./src/js/script.js"></script>
+  </body>
+</html>

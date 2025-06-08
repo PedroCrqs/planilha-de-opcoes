@@ -1,0 +1,14 @@
+@media (min-width: 769px) {
+  * {
+    font-size: 18px;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
