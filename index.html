@@ -19,9 +19,33 @@
     <div class="input-container">
       <input
         type="text"
-        id="search"
-        placeholder="Pesquisar por nome do imóvel/bairro/valor/tipologia"
-        onkeyup="searchTable()"
+        id="search-nome"
+        data-column="0"
+        placeholder="Pesquisar por nome do imóvel"
+      />
+    </div>
+    <div class="input-container">
+      <input
+        type="text"
+        id="search-bairro"
+        data-column="1"
+        placeholder="Pesquisar por Bairro"
+      />
+    </div>
+    <div class="input-container">
+      <input
+        type="text"
+        id="search-valor"
+        data-column="2"
+        placeholder="Pesquisar por Valor"
+      />
+    </div>
+    <div class="input-container">
+      <input
+        type="text"
+        id="search-tipologia"
+        data-column="3"
+        placeholder="Pesquisar por Tipologia"
       />
     </div>
     <table id="table" border="1">
@@ -266,6 +290,19 @@
           </td>
           <td>Barra da Tijuca</td>
           <td>R$ 980.000</td>
+          <td>2qts</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              class="bName"
+              href="https://drive.google.com/drive/u/1/folders/1jGaSD7T6F6REpPX3nY1n_v7aSyxHpJ-l"
+              target="_blank"
+              >Rio 2 - Alsácia</a
+            >
+          </td>
+          <td>Barra da Tijuca</td>
+          <td>R$ 840.000</td>
           <td>2qts</td>
         </tr>
         <tr>
@@ -990,6 +1027,6 @@
         Coded by <a href="https://github.com/PedroCrqs">Pedro Cerqueira</a>.
       </p>
     </footer>
-    <script src="./src/script/script.js"></script>
+    <script src="./src/scripts/script.js"></script>
   </body>
 </html>
