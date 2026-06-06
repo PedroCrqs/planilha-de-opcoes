@@ -3,6 +3,9 @@ function createPropertyMedia(property) {
   media.className = "property-card__media";
 
   const imageUrl = property.imagem || property.imageUrl;
+  const mediaBadge = document.createElement("span");
+  mediaBadge.className = "property-card__media-badge";
+  mediaBadge.textContent = isDirectImageUrl(imageUrl) ? "Foto do imóvel" : "Fotos no Drive";
 
   if (isDirectImageUrl(imageUrl)) {
     const image = document.createElement("img");
@@ -12,19 +15,23 @@ function createPropertyMedia(property) {
     image.loading = "lazy";
     image.decoding = "async";
     image.addEventListener("error", () => {
-      media.replaceChildren(createPropertyPlaceholder());
+      media.replaceChildren(createPropertyPlaceholder(), mediaBadge);
     });
-    media.appendChild(image);
+    media.append(image, mediaBadge);
     return media;
   }
 
-  media.appendChild(createPropertyPlaceholder());
+  media.append(createPropertyPlaceholder(), mediaBadge);
   return media;
 }
 
 function createPropertyPlaceholder() {
   const placeholder = document.createElement("div");
   placeholder.className = "property-card__placeholder";
+
+  const mark = document.createElement("span");
+  mark.className = "property-card__placeholder-mark";
+  mark.setAttribute("aria-hidden", "true");
 
   const title = document.createElement("span");
   title.className = "property-card__placeholder-title";
@@ -34,7 +41,7 @@ function createPropertyPlaceholder() {
   subtitle.className = "property-card__placeholder-subtitle";
   subtitle.textContent = "Abra o Drive para ver imagens e detalhes";
 
-  placeholder.append(title, subtitle);
+  placeholder.append(mark, title, subtitle);
   return placeholder;
 }
 
@@ -62,6 +69,10 @@ function createPropertyCard(property) {
   neighborhood.className = "property-card__neighborhood";
   neighborhood.textContent = property.bairro;
 
+  const meta = document.createElement("p");
+  meta.className = "property-card__meta";
+  meta.textContent = "Opção para apresentação comercial";
+
   const badges = document.createElement("div");
   badges.className = "property-card__badges";
   badges.append(
@@ -88,7 +99,7 @@ function createPropertyCard(property) {
   link.textContent = "Ver fotos e detalhes";
   link.setAttribute("aria-label", `Ver fotos e detalhes de ${property.nome}`);
 
-  content.append(title, neighborhood, badges, value, link);
+  content.append(title, neighborhood, meta, badges, value, link);
   card.append(createPropertyMedia(property), content);
   return card;
 }
@@ -117,7 +128,7 @@ function createFiltersSection(filters, activeFilterId, onSelect) {
 
   const description = document.createElement("p");
   description.className = "section-description";
-  description.textContent = "Use os botões para encontrar rapidamente o tipo de imóvel ideal.";
+  description.textContent = "Escolha uma categoria para reduzir a lista sem perder a visão geral.";
 
   const buttons = document.createElement("div");
   buttons.className = "filter-buttons";
@@ -142,7 +153,13 @@ function createStatsSection(stats) {
   text.className = "results-summary__text";
   text.textContent = `Encontramos ${stats.total} ${stats.total === 1 ? "imóvel" : "imóveis"}`;
 
-  section.appendChild(text);
+  const detail = document.createElement("p");
+  detail.className = "results-summary__detail";
+  detail.textContent = stats.total === stats.all
+    ? "Lista completa de oportunidades disponíveis."
+    : `Mostrando ${stats.total} de ${stats.all} opções da vitrine.`;
+
+  section.append(text, detail);
   return section;
 }
 

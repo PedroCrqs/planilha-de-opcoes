@@ -15,6 +15,7 @@ class AppState {
     this.filters = {
       search: "",
       activeFilter: "all",
+      sort: "featured",
     };
     this.listeners = [];
   }
@@ -35,10 +36,17 @@ class AppState {
     this.applyFilters();
   }
 
+  setSort(sort) {
+    const sortOptions = ["featured", "price-asc", "price-desc", "name-asc"];
+    this.filters.sort = sortOptions.includes(sort) ? sort : "featured";
+    this.applyFilters();
+  }
+
   clearFilters() {
     this.filters = {
       search: "",
       activeFilter: "all",
+      sort: "featured",
     };
     this.applyFilters();
   }
@@ -47,12 +55,31 @@ class AppState {
     const searchTerm = normalizeText(this.filters.search);
     const activeFilter = this.getActiveFilter();
 
-    this.filteredProperties = this.properties.filter((property) => (
+    const filteredProperties = this.properties.filter((property) => (
       this.matchesSearch(property, searchTerm) &&
       this.matchesActiveFilter(property, activeFilter)
     ));
 
+    this.filteredProperties = this.sortProperties(filteredProperties);
     this.notifyListeners();
+  }
+
+  sortProperties(properties) {
+    const sortedProperties = [...properties];
+
+    if (this.filters.sort === "price-asc") {
+      return sortedProperties.sort((a, b) => Number(a.valor) - Number(b.valor));
+    }
+
+    if (this.filters.sort === "price-desc") {
+      return sortedProperties.sort((a, b) => Number(b.valor) - Number(a.valor));
+    }
+
+    if (this.filters.sort === "name-asc") {
+      return sortedProperties.sort((a, b) => String(a.nome).localeCompare(String(b.nome), "pt-BR"));
+    }
+
+    return sortedProperties;
   }
 
   matchesSearch(property, searchTerm) {

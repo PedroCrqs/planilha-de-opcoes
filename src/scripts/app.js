@@ -25,6 +25,8 @@ class MajestoApp {
       filtersContainer: document.getElementById("filters-container"),
       propertiesContainer: document.getElementById("properties-container"),
       clearFiltersBtn: document.getElementById("clear-filters-btn"),
+      searchSubmitBtn: document.getElementById("search-submit-btn"),
+      sortSelect: document.getElementById("sort-select"),
     };
   }
 
@@ -38,6 +40,25 @@ class MajestoApp {
       this.removeListeners.push(() => this.elements.searchInput.removeEventListener("input", handleSearch));
     }
 
+    if (this.elements.searchSubmitBtn && this.elements.searchInput) {
+      const submitSearch = () => {
+        appState.setSearchFilter(this.elements.searchInput.value);
+        this.elements.searchInput.focus();
+      };
+
+      this.elements.searchSubmitBtn.addEventListener("click", submitSearch);
+      this.removeListeners.push(() => this.elements.searchSubmitBtn.removeEventListener("click", submitSearch));
+    }
+
+    if (this.elements.sortSelect) {
+      const handleSort = (event) => {
+        appState.setSort(event.target.value);
+      };
+
+      this.elements.sortSelect.addEventListener("change", handleSort);
+      this.removeListeners.push(() => this.elements.sortSelect.removeEventListener("change", handleSort));
+    }
+
     if (this.elements.clearFiltersBtn) {
       const clearFilters = () => {
         appState.clearFilters();
@@ -45,6 +66,10 @@ class MajestoApp {
         if (this.elements.searchInput) {
           this.elements.searchInput.value = "";
           this.elements.searchInput.focus();
+        }
+
+        if (this.elements.sortSelect) {
+          this.elements.sortSelect.value = appState.filters.sort;
         }
       };
 
@@ -58,6 +83,7 @@ class MajestoApp {
     this.renderFilters();
     this.renderProperties();
     this.updateClearButton();
+    this.updateSortSelect();
   }
 
   renderStats() {
@@ -87,8 +113,14 @@ class MajestoApp {
   updateClearButton() {
     if (!this.elements.clearFiltersBtn) return;
 
-    const hasActiveFilters = Boolean(appState.filters.search) || appState.filters.activeFilter !== "all";
+    const hasActiveFilters = Boolean(appState.filters.search) || appState.filters.activeFilter !== "all" || appState.filters.sort !== "featured";
     this.elements.clearFiltersBtn.hidden = !hasActiveFilters;
+  }
+
+  updateSortSelect() {
+    if (!this.elements.sortSelect) return;
+
+    this.elements.sortSelect.value = appState.filters.sort;
   }
 
   showError(message) {

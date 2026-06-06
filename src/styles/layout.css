@@ -6,14 +6,14 @@ body {
 
 main {
   flex: 1;
-  padding: var(--spacing-lg) 0 var(--spacing-3xl);
+  padding: 0 0 var(--spacing-4xl);
 }
 
 section,
 #filters-container,
 #stats-container,
 #properties-container {
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-2xl);
 }
 
 #properties-container {
@@ -22,7 +22,7 @@ section,
 
 .properties-grid {
   display: grid;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-xl);
   grid-template-columns: 1fr;
 }
 
@@ -38,7 +38,7 @@ footer {
 }
 
 .footer-content p {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-base);
   margin-bottom: var(--spacing-sm);
 }
 
