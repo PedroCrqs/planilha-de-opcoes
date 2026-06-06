@@ -1,8 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  alert(
-    "Olá corretor parceiro! Você está acessando minha planilha de opções diretas atualizada. Ao clicar no nome de cada opção, você será redirecionado para uma pasta no drive contendo as fotos e a descrição de cada opção."
-  );
-
   const inputs = document.querySelectorAll("input[data-column]");
   const lines = document.querySelectorAll("#table tbody tr");
 

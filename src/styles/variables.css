@@ -1,0 +1,124 @@
+/**
+ * Variables - Majesto Real Estate
+ * 
+ * Variáveis de design para interface clara, acessível e mobile-first.
+ * Público principal: corretores 50+, com foco em leitura fácil e cliques confortáveis.
+ */
+
+:root {
+  /* ===== CORES ===== */
+
+  /* Cores Primárias */
+  --color-primary: #8A6A2F;        /* Dourado elegante - Marca Majesto */
+  --color-primary-dark: #5F461D;   /* Dourado escuro para hover e contraste */
+  --color-primary-light: #E8D9B5;  /* Dourado claro para fundos suaves */
+
+  /* Cores Neutras */
+  --color-white: #FFFFFF;
+  --color-off-white: #F8F5EF;      /* Fundo principal claro e confortável */
+  --color-light-gray: #E7E0D2;     /* Bordas suaves */
+  --color-gray: #5F6B76;           /* Texto secundário com bom contraste */
+  --color-dark-gray: #1F2933;      /* Texto principal */
+  --color-black: #111827;          /* Quase preto, menos agressivo */
+
+  /* Cores auxiliares para cards e superfícies */
+  --color-surface: #FFFFFF;
+  --color-surface-soft: #FFF9EC;
+  --color-border: #D8C8A5;
+
+  /* Cores de Status */
+  --color-success: #2F855A;
+  --color-error: #B42318;
+  --color-warning: #B7791F;
+  --color-info: #2563EB;
+
+  /* ===== TIPOGRAFIA ===== */
+
+  /* Fontes */
+  --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-family-mono: 'Courier New', monospace;
+
+  /* Tamanhos de Fonte */
+  --font-size-xs: 14px;
+  --font-size-sm: 16px;
+  --font-size-base: 18px;
+  --font-size-lg: 20px;
+  --font-size-xl: 22px;
+  --font-size-2xl: 26px;
+  --font-size-3xl: 32px;
+  --font-size-4xl: 38px;
+
+  /* Pesos de Fonte */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Altura de Linha */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.55;
+  --line-height-relaxed: 1.75;
+
+  /* ===== ESPAÇAMENTO ===== */
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+  --spacing-2xl: 24px;
+  --spacing-3xl: 32px;
+  --spacing-4xl: 40px;
+  --spacing-5xl: 48px;
+
+  /* ===== BORDER RADIUS ===== */
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* ===== SOMBRAS ===== */
+
+  --shadow-sm: 0 1px 2px rgba(31, 41, 51, 0.05);
+  --shadow-md: 0 4px 10px rgba(31, 41, 51, 0.08);
+  --shadow-lg: 0 10px 24px rgba(31, 41, 51, 0.10);
+  --shadow-xl: 0 18px 36px rgba(31, 41, 51, 0.12);
+  --shadow-2xl: 0 25px 50px rgba(31, 41, 51, 0.15);
+
+  /* ===== TRANSIÇÕES ===== */
+
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+
+  /* ===== Z-INDEX ===== */
+
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+
+  /* ===== BREAKPOINTS ===== */
+
+  --breakpoint-xs: 320px;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/* Preferência de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms;
+    --transition-base: 0ms;
+    --transition-slow: 0ms;
+  }
+}
