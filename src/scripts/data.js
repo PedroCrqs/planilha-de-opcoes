@@ -1,0 +1,120 @@
+const rawProperties = [
+  ["Acquabella","Barra da Tijuca",3200000,"4qts","https://drive.google.com/drive/u/1/folders/1khC_xem-vICk8aO5kC0WB1wfz3-NQGjj"],
+  ["Aloha","Barra da Tijuca",1050000,"2qts","https://drive.google.com/drive/u/1/folders/1PbJo_jmYErld98HSHJugz0EdKkP-8oqp"],
+  ["Barra Bali - Beach","Barra da Tijuca",760000,"3qts","https://drive.google.com/drive/u/1/folders/1daN-trgX26gS1cosT5bXkSmxahutFqVq"],
+  ["Barra Bali - Crystal","Barra da Tijuca",750000,"3qts","https://drive.google.com/drive/folders/1Ubm4j5x33xij0r4IKUCBN5ZPfM7aH2Gi?usp=drive_link"],
+  ["Barra Sul","Barra da Tijuca",590000,"2qts","https://drive.google.com/drive/u/1/folders/1qMH41JnQ5gAEYuEau8tEVTRHpLqfXBs-"],
+  ["Barramares","Barra da Tijuca",5900000,"4qts","https://drive.google.com/drive/folders/1DCJbq_HXboGMBsdBm-mH3zICDhYTLYwd?usp=drive_link"],
+  ["Casa - Crystal Lake","Barra da Tijuca",4500000,"4qts","https://drive.google.com/drive/u/1/folders/1GPfptSYyDvf6SSmdYJfA3pPOOL07n_yN"],
+  ["Casa - Interlagos Quality II","Barra da Tijuca",3800000,"6qts","https://drive.google.com/drive/u/1/folders/1c-XFctbXeuSrQm9I4kn5_jJ-iXLMtZlX"],
+  ["Casa - Jardim Lagoa Mar Norte","Barra da Tijuca",4000000,"5qts","https://drive.google.com/drive/u/1/folders/1ihmhghRpAY_vTli-MYtagLBW5Malo_QL"],
+  ["Casa - Novo Leblon","Barra da Tijuca",7350000,"5qts","https://drive.google.com/drive/folders/10LH_lrSnqZICJJX3SrDpvJYpqGO0e0Ms?usp=drive_link"],
+  ["Casa - Riomar II","Barra da Tijuca",4800000,"4qts","https://drive.google.com/drive/u/1/folders/1ekSPBErFFS1oEfzTs78FGqu3CBXIXfj4"],
+  ["Casa - San Diego","Barra da Tijuca",4500000,"4qts","https://drive.google.com/drive/folders/1_ZfJNNlFHFyXWM9OkDVzEE-T-nFYYjTV?usp=drive_link"],
+  ["Cobertura - Laguna Di Mare","Barra da Tijuca",1845000,"4qts","https://drive.google.com/drive/folders/1piFz7mG1f6bhDKAXCkEoRRhweyJYSTav?usp=drive_link"],
+  ["Cobertura - Le Parc","Barra da Tijuca",2422000,"3qts","https://drive.google.com/drive/folders/1iM_DJHz3B4MCnzzjtabl3Nw29xvPNP3o?usp=drive_link"],
+  ["Cobertura - London Green: Blue A","Barra da Tijuca",2750000,"3qts","https://drive.google.com/drive/u/1/folders/16Xk1FPOEucCHYfv_lJul7nahhBNXcVIE"],
+  ["Cobertura - London Green: Blue B","Barra da Tijuca",2500000,"4qts","https://drive.google.com/drive/u/1/folders/18PsTjEY9Db8QJ2Dx1YbqROyJb_OSCPp4"],
+  ["Cobertura - Soho","Barra da Tijuca",1600000,"3qts","https://drive.google.com/drive/folders/1ymFbr6BLw3r1ZnBXgXdzo783pqU07PS3?usp=drive_link"],
+  ["Cobertura - Union Square Home","Barra da Tijuca",2000000,"4qts","https://drive.google.com/drive/folders/1LjDWcBOVMava7qbreCHNZzcNNUqHB6W4?usp=drive_link"],
+  ["Cobertura Jardim Oceânico A","Barra da Tijuca",3480000,"5qts","https://drive.google.com/drive/u/1/folders/12T1qCL6a6xMTX-ImFxCGmC8WNYv_flMl"],
+  ["Cobertura Jardim Oceânico B","Barra da Tijuca",3450000,"5qts","https://drive.google.com/drive/u/1/folders/1EVSyPw1k2wjFoHsn3Dpe8IHEy10kyyG5"],
+  ["Cobertura Saint George","Barra da Tijuca",2300000,"2qts","https://drive.google.com/drive/folders/1Amr_tKGsfgGxA1u6nz38HGiZL_iLFbtp?usp=drive_link"],
+  ["Maayan","Barra da Tijuca",800000,"2qts","https://drive.google.com/drive/folders/1obgoV9Jx5XVhcIwFB9aSEEZZqA3qlW_s?usp=drive_link"],
+  ["Maayan B","Barra da Tijuca",980000,"2qts","https://drive.google.com/drive/u/1/folders/14SF0j2rAFIOQcg3AwtTBS2KCbx6ngzz0"],
+  ["Península Mandarim","Barra da Tijuca",1150000,"1qt","https://drive.google.com/drive/u/1/folders/1pYP5NUZ35rsLe9t0p7hIuNPVMXU1lJnf"],
+  ["Pontões","Barra da Tijuca",525000,"2qts","https://drive.google.com/drive/u/1/folders/1kKiqh1pbErTnLW9KZ_NpYqBAnfmk8Ht9"],
+  ["Viure A","Barra da Tijuca",1250000,"2qts","https://drive.google.com/drive/u/1/folders/1rCTCDFlbaJFMl19iE533K5eDeQWuM5bs"],
+  ["Viure B","Barra da Tijuca",1050000,"2qts","https://drive.google.com/drive/folders/17yrsE9T2jWaBKYcs1wl97U9WlopsXC8m?usp=drive_link"],
+  ["Apogeu","Barra Olímpica",439000,"3qts","https://drive.google.com/drive/u/1/folders/1qwNC5I1uH6U56P_UYomCisyaFBuQOS-F"],
+  ["Barra Central Park","Barra Olímpica",630000,"2qts","https://drive.google.com/drive/u/1/folders/1LseaTod2upkBPDNIvGqJ504S1DVF4Bb9"],
+  ["Cobertura - BarraMais","Barra Olímpica",1260000,"3qts","https://drive.google.com/drive/u/1/folders/1yfqusCZWN0bOxN_st4qjupdxzs61BBjm"],
+  ["Duet Barra Residence","Barra Olímpica",465000,"2qts","https://drive.google.com/drive/u/1/folders/1RO0bdPAEIhNXWM160hVyyvujY64JGHzR"],
+  ["Freedom","Barra Olímpica",560000,"3qts","https://drive.google.com/drive/u/1/folders/1J7GCwqY6dtp-JA21lZ1ggap9d5FicRKa"],
+  ["Freedom","Barra Olímpica",700000,"3qts","https://drive.google.com/drive/u/1/folders/12EKn4nI3eTpXp2r5W_BVpvuMojFViyuG"],
+  ["Garden - Living Park Jardim - Jasmim","Barra Olímpica",530000,"2qts","https://drive.google.com/drive/u/1/folders/1RWuZZFz770IcIPCI11jPvCVLG5Sa6SLD"],
+  ["Grand Prix","Barra Olímpica",1050000,"3qts","https://drive.google.com/drive/u/1/folders/1ic6GwXtlMOQsM6LFn2PAaVKkE5qPrDYe"],
+  ["Casa independente","Freguesia",498000,"4qts","https://drive.google.com/drive/u/1/folders/1b52nixCzg14FfO3k8WnUaMY9bJrl6xCj"],
+  ["Casa - Jardim Uruçanga","Freguesia",1450000,"4qts","https://drive.google.com/drive/u/1/folders/1icoBd4DHx2Enh7_uQAQZsQrOR5KvVI3O"],
+  ["Casa - Magic Garden Houses","Freguesia",915000,"4qts","https://drive.google.com/drive/u/1/folders/1nN4WgH-byj73bwSf8PPhNaUqTxbWkEdp"],
+  ["Cobertura - Arthur I","Freguesia",750000,"4qts","https://drive.google.com/drive/u/1/folders/1zqo9io1nsiSx9bdPYXPkHb2RTdVIbBlx"],
+  ["Vila do Pan / Indianópolis","Jacarepaguá",445000,"2qts","https://drive.google.com/drive/u/1/folders/11re0JqIJJO5nGTTPAlEdhTGLSx07AUZe"],
+  ["Weekend Bandeirantes","Jacarepaguá",490000,"3qts","https://drive.google.com/drive/u/1/folders/13EtLxIEmLJdeZXnIkeq9gvVF8vXZNWo1"],
+  ["Cobertura - Lume Residencial","Recreio dos Bandeirantes",2400000,"4qts","https://drive.google.com/drive/u/1/folders/1x43Nq-TmqnjMMHZOpPGWhlhALRPN7_WX"],
+  ["Barra Sunday","Recreio dos Bandeirantes",695000,"2qts","https://drive.google.com/drive/u/1/folders/1KGR-EK2-VKPITvPycJeZd-m_jtBurccC"],
+  ["Casa - Jardins de Barra Bonita","Recreio dos Bandeirantes",1850000,"5qts","https://drive.google.com/drive/u/1/folders/1jKH7Pq_Yv1PTZh6ak70eO6xf21rxZMTW"],
+  ["Casa - Jardins de Monet","Recreio dos Bandeirantes",1950000,"4qts","https://drive.google.com/drive/u/1/folders/19NPDPCmjcidpLHwHnTNXlKOgvVjZz6GR"],
+  ["Casa - Riviera del Sol","Recreio dos Bandeirantes",2500000,"4qts","https://drive.google.com/drive/u/1/folders/1RNVxicLS5ldFSbNeIy0zSgx_i7skizVx"],
+  ["Casa - Spazio del Mare","Recreio dos Bandeirantes",800000,"4qts","https://drive.google.com/drive/u/1/folders/14BhoelMTUBYl434mjJvOnmwpryRSit7h"],
+  ["Casa - Vila do Mar","Recreio dos Bandeirantes",1899000,"4qts","https://drive.google.com/drive/u/1/folders/1dFo15cLhvnULFKm9mF4ZjAO9sf_3F4HA"],
+  ["Cobertura - Barra Village Lakes","Recreio dos Bandeirantes",1680000,"3qts","https://drive.google.com/drive/u/1/folders/1a7gZ0EpCRAJakRpBck51Fp9sjNKWYsN6"],
+  ["Cobertura - Enjoy","Recreio dos Bandeirantes",1300000,"3qts","https://drive.google.com/drive/u/1/folders/11u0d1JykWewm9JwUqEOS1aLAjdIWKch3"],
+  ["Cobertura Prédio Baixo - Gleba A","Recreio dos Bandeirantes",1600000,"5qts","https://drive.google.com/drive/u/1/folders/1ua3WDV6OnH8aWLMjOc6oEtN1eSM93cDW"],
+  ["Cobertura Prédio Baixo - Gleba A","Recreio dos Bandeirantes",1450000,"3qts","https://drive.google.com/drive/u/1/folders/18ZKv2z00lv0BQYDKG4X3rZwvC20VZdkt"],
+  ["Cobertura Prédio Baixo - Gleba A","Recreio dos Bandeirantes",1580000,"3qts","https://drive.google.com/drive/u/1/folders/1XjdXvZT2JaDgEGrB53PyicLI1TW7rli5"],
+  ["Cobertura Prédio Baixo - Gleba A","Recreio dos Bandeirantes",1170000,"2qts","https://drive.google.com/drive/u/1/folders/1JfLuFx8LRhiueMn8UY3tZkh65LQSr2yA"],
+  ["Cobertura Prédio Baixo - Gleba A","Recreio dos Bandeirantes",1600000,"4qts","https://drive.google.com/drive/u/1/folders/1vOpVfLqCUG1IFHx3R7r7VD73bVxk29gD"],
+  ["Cobertura Prédio Baixo - Gleba B","Recreio dos Bandeirantes",1790000,"3qts","https://drive.google.com/drive/u/1/folders/1VQQxGtL_wNDhMEYq2JGoUfwYUQoJnw2_"],
+  ["Damai","Recreio dos Bandeirantes",1040000,"4qts","https://drive.google.com/drive/u/1/folders/1VBmv7wuijTncV4wFrWcASLHM1loGK90s"],
+  ["Luar do Pontal","Recreio dos Bandeirantes",560000,"2qts","https://drive.google.com/drive/u/1/folders/1Yq5pd3anvogULtfxRnqQHzLTjigVlXaO"],
+  ["Maramar","Recreio dos Bandeirantes",2415000,"5qts","https://drive.google.com/drive/u/1/folders/1ClLtPngrBjAHsJ-kPScAjh5dRDXTbhT6"],
+  ["Maramar","Recreio dos Bandeirantes",3700000,"8qts","https://drive.google.com/drive/u/1/folders/16JrWnEN4kw_hrpDcV0JcNyMtUR_ZUSg0"],
+  ["Nova Sernambetiba","Recreio dos Bandeirantes",790000,"2qts","https://drive.google.com/drive/u/1/folders/1MtW6JIPM40dGv0gQBnuqWhpSuxEYBivf"],
+  ["Novolar Recreio","Recreio dos Bandeirantes",489000,"2qts","https://drive.google.com/drive/u/1/folders/1kq4Xv542BAaTmGsW54BUtCnKGZGj2NQN"],
+  ["Prédio Baixo - Gleba A (frente)","Recreio dos Bandeirantes",850000,"3qts","https://drive.google.com/drive/u/1/folders/1U50SVplkCuzroNay0bf65uzWPbIU_dLo"],
+  ["Prédio Baixo - Gleba A (frente)","Recreio dos Bandeirantes",870000,"4qts","https://drive.google.com/drive/u/1/folders/1fP-BrxhkpMezTYNjWlXbZxeiQy7qPJwD"],
+  ["Prédio Baixo - Gleba A (frente)","Recreio dos Bandeirantes",1050000,"3qts","https://drive.google.com/drive/u/1/folders/1ZDxF8A8wRyGmy9ThokVwZQNweimHj9WI"],
+  ["Prédio Baixo - Gleba A (frente)","Recreio dos Bandeirantes",700000,"3qts","https://drive.google.com/drive/u/1/folders/1xceuvDTYMz13FNdDzKTho9RkGMuWViBx"],
+  ["Prédio Baixo - Gleba A (frente)","Recreio dos Bandeirantes",1050000,"2qts","https://drive.google.com/drive/u/1/folders/1-F755U8d0MiJsMmcTJNacoa0E60V3apQ"],
+  ["Prédio Baixo - Gleba A (fundos)","Recreio dos Bandeirantes",650000,"3qts","https://drive.google.com/drive/u/1/folders/1S6LRDhjr1U05iZrp09QXcfOrMsNFbuzT"],
+  ["Prédio Baixo - Gleba A (fundos)","Recreio dos Bandeirantes",635000,"2qts","https://drive.google.com/drive/u/1/folders/1XxPSTFOSo0KRf5OQDUtq3XC72AwWZPTf"],
+  ["Prédio Baixo - Gleba B (frente)","Recreio dos Bandeirantes",680000,"2qts","https://drive.google.com/drive/u/1/folders/1oT096cnJSFirUILE0VFyHLd6t0J24dzw"],
+  ["Prédio Baixo - Gleba B (lâmina)","Recreio dos Bandeirantes",1290000,"4qts","https://drive.google.com/drive/u/1/folders/1kh6AXHlArAP5YcysLY88416s3wePiQHS"],
+  ["Prédio Baixo - Gleba B (lâmina)","Recreio dos Bandeirantes",1350000,"3qts","https://drive.google.com/drive/u/1/folders/1shLoZpenFp9X3uO1tdt5Li-DXFP2PL68"],
+  ["Prédio Baixo - Gleba B (Frente)","Recreio dos Bandeirantes",1000000,"3qts","https://drive.google.com/drive/u/1/folders/1Nhry2XtkWmBDRQGthRAKp6y-6RD1WJqR"],
+  ["Prédio Baixo - Gleba B (frente)","Recreio dos Bandeirantes",820000,"3qts","https://drive.google.com/drive/u/1/folders/1bBc6fEHZTKvNw2q2WcTX0m6NA9oomoO7"],
+  ["Prédio Baixo - Gleba B (frente)","Recreio dos Bandeirantes",840000,"3qts","https://drive.google.com/drive/u/1/folders/1o-WKsEJE7yZ4GONPk0kAKQuO1nKSEyYc"],
+  ["Prédio Baixo - Gleba B (fundos)","Recreio dos Bandeirantes",790000,"2qts","https://drive.google.com/drive/u/1/folders/1wXYRSq3evsKXx3lDGWP09CU2BWkEwQP9"],
+  ["Prédio Baixo - Gleba B (fundos)","Recreio dos Bandeirantes",650000,"3qts","https://drive.google.com/drive/u/1/folders/1NvnzlnzWsb837t-xctGoDccKCW63ijA8"],
+  ["Prédio Baixo - Gleba C (fundos)","Recreio dos Bandeirantes",615000,"3qts","https://drive.google.com/drive/u/1/folders/1cdyAMENFyLff67xTtehYIsi04rlEHLHh"],
+  ["Round Decks","Recreio dos Bandeirantes",620000,"3qts","https://drive.google.com/drive/u/1/folders/1llWI7XErbkZU40psCtu6ThAhj6g5n910"],
+  ["Summer Club","Recreio dos Bandeirantes",695000,"3qts","https://drive.google.com/drive/u/1/folders/1j0J9eID35saQqMrgvUPqC21VaIVSccGd"],
+  ["Top Duplex","Recreio dos Bandeirantes",520000,"3qts","https://drive.google.com/drive/u/1/folders/1qpT3Xqcw_Dc_69JJOlDcUCBOgrXLtGZ0"],
+  ["Viverde","Recreio dos Bandeirantes",525000,"2qts","https://drive.google.com/drive/u/1/folders/1zcJqOCSRdiU5B7ilyWFHu-HWWw78l8-P"],
+  ["Viverde","Recreio dos Bandeirantes",608000,"3qts","https://drive.google.com/drive/u/1/folders/16ML25jc2OUpDSRMLadf7PVyv6R3cQ_zn"],
+  ["West Vintage","Recreio dos Bandeirantes",850000,"3qts","https://drive.google.com/drive/u/1/folders/1Z3PgoqEHwwhcrJS6vPtQdVGYMZAizQCD"],
+  ["Casa - Terra Nossa","Taquara",880000,"3qts","https://drive.google.com/drive/u/1/folders/1-4LFQn2U5KjLr8W0BfQNEbncS10gMiq3"],
+  ["Cobertura - Ecoway","Taquara",589000,"2qts","https://drive.google.com/drive/u/1/folders/1bxGrm-KC3eQfZL3L49g1vspBQTxab12k"],
+  ["Casa - Dream Garden","Vargem Pequena",2100000,"5qts","https://drive.google.com/drive/u/1/folders/1AX1stdq7Fr74Nijsc-chAGZOt9tyJOMt"],
+  ["Casa - Tangarás Recreio","Vargem Pequena",1489000,"4qts","https://drive.google.com/drive/u/1/folders/13m3SU7GcsPjYLMVcc3pVXUzB9ditZSiC"],
+  ["Cobertura - Grand Family","Vargem Pequena",750000,"3qts","https://drive.google.com/drive/u/1/folders/1CPGbcQtuIEOB-qALAthST-h8z0oYzHxA"],
+];
+
+function inferPropertyType(name) {
+  const normalizedName = String(name).toLowerCase();
+
+  if (normalizedName.includes("cobertura")) return "cobertura";
+  if (normalizedName.includes("casa")) return "casa";
+
+  return "apartamento";
+}
+
+function getBedroomCount(tipologia) {
+  const match = String(tipologia).match(/\d+/);
+  return match ? Number(match[0]) : 0;
+}
+
+const PROPERTIES = rawProperties.map(([nome, bairro, valor, tipologia, link], index) => ({
+  id: index + 1,
+  nome,
+  bairro,
+  valor,
+  tipologia,
+  tipo: inferPropertyType(nome),
+  quartos: getBedroomCount(tipologia),
+  link,
+}));
+
+async function fetchProperties() {
+  return PROPERTIES.map((property) => ({ ...property }));
+}
