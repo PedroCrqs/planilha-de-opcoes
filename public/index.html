@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="atribution" content="Coded by PedroCrq" />
+        <title>Opções para parceria</title>
+        <link rel="stylesheet" href="./src/styles/style.css" />
+        <link rel="stylesheet" href="./src/styles/responsive.css" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./src/assets/images/logo.png"
+        />
+    </head>
+    <body>
+        <h1>Lista de Imóveis</h1>
+        <div class="input-container">
+            <input
+                type="text"
+                id="search-nome"
+                data-column="0"
+                placeholder="Pesquisar por nome do imóvel"
+            />
+        </div>
+        <div class="input-container">
+            <input
+                type="text"
+                id="search-bairro"
+                data-column="1"
+                placeholder="Pesquisar por Bairro"
+            />
+        </div>
+        <div class="input-container">
+            <input
+                type="text"
+                id="search-valor"
+                data-column="2"
+                placeholder="Pesquisar por Valor"
+            />
+        </div>
+        <div class="input-container">
+            <input
+                type="text"
+                id="search-tipologia"
+                data-column="3"
+                placeholder="Pesquisar por Tipologia"
+            />
+        </div>
+        <table id="table" border="1">
+            <thead>
+                <tr>
+                    <th>Nome do Imóvel</th>
+                    <th>Bairro</th>
+                    <th>Valor</th>
+                    <th>Tipologia</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+        <script src="./src/scripts/script.js"></script>
+    </body>
+</html>
