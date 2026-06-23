@@ -2,30 +2,90 @@ function createPropertyMedia(property) {
   const media = document.createElement("div");
   media.className = "property-card__media";
 
-  const imageUrl = property.imagem || property.imageUrl;
   const mediaBadge = document.createElement("span");
   mediaBadge.className = "property-card__media-badge";
-  mediaBadge.textContent = isDirectImageUrl(imageUrl) ? "Foto do imóvel" : "Fotos no Drive";
+  mediaBadge.textContent = "Fotos no Drive";
 
-  if (isDirectImageUrl(imageUrl)) {
-    const image = document.createElement("img");
-    image.className = "property-card__image";
-    image.src = imageUrl;
-    image.alt = `Foto do imóvel ${property.nome}`;
-    image.loading = "lazy";
-    image.decoding = "async";
-    image.addEventListener("error", () => {
-      media.replaceChildren(createPropertyPlaceholder(), mediaBadge);
-    });
-    media.append(image, mediaBadge);
+  // Se tem link de pasta do Drive, busca as fotos via API
+  if (property.link && property.link.includes("/folders/")) {
+    media.append(createPropertyPlaceholder("Carregando fotos..."), mediaBadge);
+
+    fetch(`/api/imoveis/${property.id}/fotos`)
+      .then((r) => r.json())
+      .then((urls) => {
+        if (urls.length === 0) {
+          media.replaceChildren(createPropertyPlaceholder(), mediaBadge);
+          return;
+        }
+        mediaBadge.textContent = `${urls.length} foto${urls.length > 1 ? "s" : ""}`;
+        media.replaceChildren(createCarousel(urls, property.nome), mediaBadge);
+      })
+      .catch(() => {
+        media.replaceChildren(createPropertyPlaceholder(), mediaBadge);
+      });
+
     return media;
   }
 
+  // Sem link ou link não é pasta do Drive
   media.append(createPropertyPlaceholder(), mediaBadge);
   return media;
 }
 
-function createPropertyPlaceholder() {
+function createCarousel(urls, nomeImovel) {
+  const carousel = document.createElement("div");
+  carousel.className = "property-card__carousel";
+
+  let current = 0;
+
+  const img = document.createElement("img");
+  img.className = "property-card__image";
+  img.src = urls[0];
+  img.alt = `Foto do imóvel ${nomeImovel}`;
+  img.loading = "lazy";
+  img.decoding = "async";
+
+  const counter = document.createElement("span");
+  counter.className = "property-card__carousel-counter";
+  counter.textContent = `1 / ${urls.length}`;
+
+  function goTo(index) {
+    current = (index + urls.length) % urls.length;
+    img.src = urls[current];
+    img.alt = `Foto ${current + 1} do imóvel ${nomeImovel}`;
+    counter.textContent = `${current + 1} / ${urls.length}`;
+  }
+
+  if (urls.length > 1) {
+    const prev = document.createElement("button");
+    prev.className =
+      "property-card__carousel-btn property-card__carousel-btn--prev";
+    prev.setAttribute("aria-label", "Foto anterior");
+    prev.textContent = "‹";
+    prev.addEventListener("click", (e) => {
+      e.preventDefault();
+      goTo(current - 1);
+    });
+
+    const next = document.createElement("button");
+    next.className =
+      "property-card__carousel-btn property-card__carousel-btn--next";
+    next.setAttribute("aria-label", "Próxima foto");
+    next.textContent = "›";
+    next.addEventListener("click", (e) => {
+      e.preventDefault();
+      goTo(current + 1);
+    });
+
+    carousel.append(img, prev, next, counter);
+  } else {
+    carousel.append(img);
+  }
+
+  return carousel;
+}
+
+function createPropertyPlaceholder(message = null) {
   const placeholder = document.createElement("div");
   placeholder.className = "property-card__placeholder";
 
@@ -35,11 +95,13 @@ function createPropertyPlaceholder() {
 
   const title = document.createElement("span");
   title.className = "property-card__placeholder-title";
-  title.textContent = "Fotos disponíveis";
+  title.textContent = message || "Fotos disponíveis";
 
   const subtitle = document.createElement("span");
   subtitle.className = "property-card__placeholder-subtitle";
-  subtitle.textContent = "Abra o Drive para ver imagens e detalhes";
+  subtitle.textContent = message
+    ? ""
+    : "Abra o Drive para ver imagens e detalhes";
 
   placeholder.append(mark, title, subtitle);
   return placeholder;
@@ -77,7 +139,7 @@ function createPropertyCard(property) {
   badges.className = "property-card__badges";
   badges.append(
     createBadge(getTypeLabel(property.tipo)),
-    createBadge(property.tipologia, "property-card__badge--soft")
+    createBadge(property.tipologia, "property-card__badge--soft"),
   );
 
   const value = document.createElement("p");
@@ -93,7 +155,7 @@ function createPropertyCard(property) {
 
   const link = document.createElement("a");
   link.className = "property-card__button";
-  link.href = property.link;
+  link.href = property.link || "#";
   link.target = "_blank";
   link.rel = "noopener noreferrer";
   link.textContent = "Ver fotos e detalhes";
@@ -128,7 +190,8 @@ function createFiltersSection(filters, activeFilterId, onSelect) {
 
   const description = document.createElement("p");
   description.className = "section-description";
-  description.textContent = "Escolha uma categoria para reduzir a lista sem perder a visão geral.";
+  description.textContent =
+    "Escolha uma categoria para reduzir a lista sem perder a visão geral.";
 
   const buttons = document.createElement("div");
   buttons.className = "filter-buttons";
@@ -155,9 +218,10 @@ function createStatsSection(stats) {
 
   const detail = document.createElement("p");
   detail.className = "results-summary__detail";
-  detail.textContent = stats.total === stats.all
-    ? "Lista completa de oportunidades disponíveis."
-    : `Mostrando ${stats.total} de ${stats.all} opções da vitrine.`;
+  detail.textContent =
+    stats.total === stats.all
+      ? "Lista completa de oportunidades disponíveis."
+      : `Mostrando ${stats.total} de ${stats.all} opções da vitrine.`;
 
   section.append(text, detail);
   return section;
@@ -182,7 +246,8 @@ function createPropertiesList(properties) {
   if (properties.length === 0) {
     const emptyMessage = document.createElement("p");
     emptyMessage.className = "empty-state";
-    emptyMessage.textContent = "Nenhum imóvel encontrado. Tente outro bairro, valor ou quantidade de quartos.";
+    emptyMessage.textContent =
+      "Nenhum imóvel encontrado. Tente outro bairro, valor ou quantidade de quartos.";
     section.appendChild(emptyMessage);
     return section;
   }

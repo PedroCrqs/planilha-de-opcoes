@@ -41,6 +41,6 @@ async function fetchProperties() {
     valor: imovel.Valor,
     tipo: deriveTipo(imovel.Tipologia),
     quartos: imovel.Quartos,
-    link: imovel.LinkPublico || "#",
+    link: imovel.LinkPublico || null,
   }));
 }
