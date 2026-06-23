@@ -1,22 +1,18 @@
 {
   "name": "planilha-de-opcoes",
-  "version": "1.0.0",
-  "description": "The objective of this project is to create an **interactive spreadsheet** for use with my real estate partners. The spreadsheet needs to contain _the name of the enterprise, district, room numbers, and the sale price._ <u>Clicking on the name redirects to a Google Drive page with pictures of the building</u>. The project needs to be **responsive** and **easy to navigate**.",
+  "version": "2.1.0",
+  "description": "Plataforma de listagem de imóveis para corretores parceiros. Backend Node.js + SQLite com entrega via Cloudflare Tunnel.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "node --watch server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PedroCrqs/planilha-de-opcoes.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Pedro Cerqueira",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/PedroCrqs/planilha-de-opcoes/issues"
-  },
-  "homepage": "https://github.com/PedroCrqs/planilha-de-opcoes#readme",
   "dependencies": {
     "better-sqlite3": "^12.11.1",
     "express": "^5.2.1",
