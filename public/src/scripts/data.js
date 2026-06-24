@@ -42,5 +42,6 @@ async function fetchProperties() {
     tipo: deriveTipo(imovel.Tipologia),
     quartos: imovel.Quartos,
     link: imovel.LinkPublico || null,
+    tipologia: '${imovel.Quartos} quarto${imovel.Quartos === 1 ? "" :  "s"}',
   }));
 }
