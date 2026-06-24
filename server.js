@@ -28,12 +28,12 @@ const query = `
   WHERE i.ImovelStatus = 'Disponível'
   ORDER BY b.Nome, c.Nome
 `;
-const available = db.prepare(query).all();
+const available = db.prepare(query);
 
 app.use(express.static("public"));
 
 app.get("/api/imoveis", (req, res) => {
-  res.json(available);
+  res.json(available.all());
 });
 
 function extractFolderId(link) {
@@ -42,9 +42,13 @@ function extractFolderId(link) {
   return match ? match[1] : null;
 }
 
+const stmtFoto = db.prepare(
+  "SELECT LinkPublico FROM Imoveis WHERE ImovelID = ?",
+);
+
 app.get("/api/imoveis/:id/fotos", async (req, res) => {
   const id = Number(req.params.id);
-  const imovel = available.find((i) => i.ImovelID === id);
+  const imovel = stmtFoto.get(id);
   const folderId = extractFolderId(imovel?.LinkPublico);
 
   if (!folderId) return res.json([]);
