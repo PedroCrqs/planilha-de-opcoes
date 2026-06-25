@@ -1,6 +1,6 @@
 {
   "name": "planilha-de-opcoes",
-  "version": "2.1.0",
+  "version": "2.220",
   "description": "Plataforma de listagem de imóveis para corretores parceiros. Backend Node.js + SQLite com entrega via Cloudflare Tunnel.",
   "main": "server.js",
   "scripts": {
