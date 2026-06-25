@@ -6,6 +6,18 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
 ---
 
+## [2.2.0] - 2026-06-25
+
+### Adicionado
+- Mecanismo de TTL (Time-To-Live) de 12 horas no cache de fotos em memória (`fotosCache`).
+- Validação temporal baseada em timestamp (`Date.now()`) para invalidação e renovação automática do cache de fotos.
+
+### Alterado
+- Estrutura do `fotosCache` modificada de um array simples de URLs para um objeto contendo a lista de `urls` e o `timestamp` da requisição.
+- Rota `GET /api/imoveis/:id/fotos` otimizada para limpar chaves expiradas e poupar cota da API do Google Drive.
+
+---
+
 ## [2.1.0] - 2026-06-23
 
 ### Adicionado
