@@ -77,7 +77,7 @@ app.get("/api/imoveis/:id/fotos", async (req, res) => {
       q: `'${folderId}' in parents and mimeType contains 'image/' and trashed = false`,
       fields: "files(id, name)",
       orderBy: "name",
-      pageSize: 20,
+      pageSize: 100,
     });
 
     const urls = (data.files || []).map(
