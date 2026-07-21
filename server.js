@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -16,18 +17,18 @@ const fotosCache = new Map();
 
 // Consulta SQL adaptada
 const queryAvailable = `
-  SELECT i."ImovelID",
-         c."Nome" AS "NomeImovel",
-         b."Nome" AS "Bairro",
-         i."Valor",
-         i."Tipologia",
-         i."Quartos",
-         i."LinkPublico"
-  FROM "Imoveis" i
-  INNER JOIN "Bairros" b ON i."BairroID" = b."BairroID"
-  LEFT JOIN "Condominios" c ON i."CondominioID" = c."CondominioID"
-  WHERE i."ImovelStatus" = 'Disponível'
-  ORDER BY b."Nome", c."Nome"
+  SELECT i.imovelid AS "ImovelID",
+         c.nome AS "NomeImovel",
+         b.nome AS "Bairro",
+         i.valor AS "Valor",
+         i.tipologia AS "Tipologia",
+         i.quartos AS "Quartos",
+         i.linkpublico AS "LinkPublico"
+  FROM imoveis i
+  INNER JOIN bairros b ON i.bairroid = b.bairroid
+  LEFT JOIN condominios c ON i.condominioid = c.condominioid
+  WHERE i.imovelstatus = 'Disponível'
+  ORDER BY b.nome, c.nome
 `;
 
 app.use(express.static("public"));
@@ -73,7 +74,7 @@ app.get("/api/imoveis/:id/fotos", async (req, res) => {
 
   try {
     // Consulta substituindo '?' por '$1' para o pg
-    const queryFoto = `SELECT "LinkPublico" FROM "Imoveis" WHERE "ImovelID" = $1`;
+    const queryFoto = `SELECT linkpublico AS "LinkPublico" FROM imoveis WHERE imovelid = $1`;
     const { rows } = await pool.query(queryFoto, [id]);
     const imovel = rows[0];
 
