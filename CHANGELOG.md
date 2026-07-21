@@ -4,6 +4,13 @@
 Todas as mudanças relevantes deste projeto serão documentadas aqui.  
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
+## [2.3.0] - 2026-07-20
+
+### 🔄 Alterado / Refatorado
+- **Driver de Banco de Dados:** Migração da persistência de dados de **SQLite** (`better-sqlite3`) para **PostgreSQL** (`pg`).
+- **Lógica de Consultas:** Atualização das rotas da API (`/api/imoveis` e `/api/imoveis/:id/fotos`) para executarem queries de forma assíncrona (`async/await`) utilizando o pool de conexões do módulo `db.js`.
+- **Sintaxe SQL:** Adaptação dos identificadores de colunas/tabelas com aspas duplas e alteração dos *placeholders* de parâmetros de `?` para `$1`.
+
 ---
 
 ## [2.2.0] - 2026-06-25
